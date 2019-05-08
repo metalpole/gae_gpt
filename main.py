@@ -9,6 +9,12 @@ def hello():
     """Return a friendly HTTP greeting."""
     return 'Hello World!'
 
+@app.route('/showmethemoney')
+def showmethemoney():
+    """Show me the money"""
+    subfile_output = subprocess.run('python3 src/generate_unconditional_samples.py --nsamples 1 --length 25 --temperature 0.7 --top_k 30', shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
+    return subfile_output
+
 @app.errorhandler(500)
 def server_error(e):
     logging.exception('An error occurred during a request.')
