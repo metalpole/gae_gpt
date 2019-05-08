@@ -1,1 +1,2 @@
 runtime: python36
+env: flex
