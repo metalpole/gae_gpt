@@ -5,7 +5,7 @@ from flask import Flask
 #import json
 #import os
 #import numpy as np
-#import tensorflow as tf
+import tensorflow as tf
 #import model, sample, encoder
 #from generate_unconditional_samples import sample_model
 
