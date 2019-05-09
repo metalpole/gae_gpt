@@ -42,13 +42,13 @@ def sample_model(
         saver.restore(sess, ckpt)
 
         generated = 0
+        text = ''
         while nsamples == 0 or generated < nsamples:
             out = sess.run(output)
             for i in range(batch_size):
                 generated += batch_size
-                text = enc.decode(out[i])
-                print("=" * 40 + " SAMPLE " + str(generated) + " " + "=" * 40)
-                print(text)
+                text += enc.decode(out[i])
+    return text
 
 app = Flask(__name__)
 
