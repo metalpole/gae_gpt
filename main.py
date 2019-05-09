@@ -1,5 +1,5 @@
 import logging
-#import subprocess
+import subprocess
 from flask import Flask
 import json
 import os
@@ -29,3 +29,6 @@ def server_error(e):
     An internal error occurred: <pre>{}</pre>
     See logs for full stacktrace.
     """.format(e), 500
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=80)
