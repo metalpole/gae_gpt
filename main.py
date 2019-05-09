@@ -1,5 +1,6 @@
 import logging
 import sample_model
+import interact_model
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 # Enable logging
@@ -17,7 +18,8 @@ def help(update, context):
 
 def echo(update, context):
     """Echo the user message."""
-    update.message.reply_text(sample_model.sample_model())
+    update.message.reply_text(interact_model.interact_model(raw_text=update.message.text))
+#    update.message.reply_text(sample_model.sample_model())
 #    update.message.reply_text(update.message.text)
 
 def error(update, context):
