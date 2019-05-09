@@ -1,34 +1,62 @@
 import logging
-import subprocess
-from flask import Flask
-import json
-import os
-import sample_model
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
-app = Flask(__name__)
+# Enable logging
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+                    level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-@app.route('/')
-def hello():
-    """Return a friendly HTTP greeting."""
-    return "Hello world!"
 
-@app.route('/generate')
-def generate():
-    return sample_model.sample_model()
+# Define a few command handlers. These usually take the two arguments bot and
+# update. Error handlers also receive the raised TelegramError object in error.
+def start(update, context):
+    """Send a message when the command /start is issued."""
+    update.message.reply_text('Hi!')
 
-# @app.route('/showmethemoney')
-# def showmethemoney():
-#     """Show me the money"""
-#    subfile_output = subprocess.run('python3 src/generate_unconditional_samples.py --nsamples 1 --length 25 --temperature 0.7 --top_k 30', shell=True, stdout=subprocess.PIPE).stdout.decode('utf-8')
-#    return sample_model(nsamples=1, length=25, temperature=0.7, top_k=35)
 
-@app.errorhandler(500)
-def server_error(e):
-    logging.exception('An error occurred during a request.')
-    return """
-    An internal error occurred: <pre>{}</pre>
-    See logs for full stacktrace.
-    """.format(e), 500
+def help(update, context):
+    """Send a message when the command /help is issued."""
+    update.message.reply_text('Help!')
 
-if __name__ == "__main__":
-    app.run()
+
+def echo(update, context):
+    """Echo the user message."""
+    update.message.reply_text(update.message.text)
+
+
+def error(update, context):
+    """Log Errors caused by Updates."""
+    logger.warning('Update "%s" caused error "%s"', update, context.error)
+
+
+def main():
+    """Start the bot."""
+    # Create the Updater and pass it your bot's token.
+    # Make sure to set use_context=True to use the new context based callbacks
+    # Post version 12 this will no longer be necessary
+    updater = Updater("666218025:AAFOzCAxqnxwZcZsoq4P0kjPZrB-5UehMWA", use_context=True)
+
+    # Get the dispatcher to register handlers
+    dp = updater.dispatcher
+
+    # on different commands - answer in Telegram
+    dp.add_handler(CommandHandler("start", start))
+    dp.add_handler(CommandHandler("help", help))
+
+    # on noncommand i.e message - echo the message on Telegram
+    dp.add_handler(MessageHandler(Filters.text, echo))
+
+    # log all errors
+    dp.add_error_handler(error)
+
+    # Start the Bot
+    updater.start_polling()
+
+    # Run the bot until you press Ctrl-C or the process receives SIGINT,
+    # SIGTERM or SIGABRT. This should be used most of the time, since
+    # start_polling() is non-blocking and will stop the bot gracefully.
+    updater.idle()
+
+
+if __name__ == '__main__':
+    main()
