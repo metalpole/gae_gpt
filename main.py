@@ -3,15 +3,18 @@ import logging
 from flask import Flask
 import json
 import os
+import sample_model
 
 app = Flask(__name__)
 
 @app.route('/')
 def hello():
     """Return a friendly HTTP greeting."""
-    if True:
-        import sample_model
-        return "Hello world!"
+    return "Hello world!"
+
+@app.route('/generate')
+def generate():
+    return sample_model.sample_model()
 
 # @app.route('/showmethemoney')
 # def showmethemoney():
