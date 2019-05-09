@@ -1,11 +1,11 @@
 import logging
-import subprocess
+#import subprocess
 from flask import Flask
 import json
 import os
 import numpy as np
 import tensorflow as tf
-import model, sample, encoder
+#import model, sample, encoder
 
 def sample_model(
     model_name='117M',
