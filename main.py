@@ -21,7 +21,7 @@ def echo(update, context):
     # Generate conditional sample
     update.message.reply_text('Please wait for my very good brain')
     reply = interact_model.interact_model(raw_text=(update.message.text))
-    update.message.reply_text(reply)
+    update.message.reply_text(update.message.text + reply)
     # Generate random sample
 #    update.message.reply_text(sample_model.sample_model())
 #    update.message.reply_text(update.message.text)
