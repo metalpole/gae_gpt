@@ -44,7 +44,7 @@ def interact_model(
         ckpt = tf.train.latest_checkpoint(os.path.join('models', model_name))
         saver.restore(sess, ckpt)
 
-        text=''
+        text='before text generation'
         while True:
             context_tokens = enc.encode(raw_text)
             generated = 0
