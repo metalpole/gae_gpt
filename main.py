@@ -1,5 +1,4 @@
 import logging
-import time
 import sample_model
 import interact_model
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
@@ -20,11 +19,8 @@ def help(update, context):
 def echo(update, context):
     """Echo the user message."""
     # Generate conditional sample
-    reply = interact_model.interact_model(raw_text=(update.message.text))
     update.message.reply_text('Please wait for my very good brain')
-    time.sleep(3)
-    update.message.reply_text('It\'s coming')
-    time.sleep(3)
+    reply = interact_model.interact_model(raw_text=(update.message.text))
     update.message.reply_text(reply)
     # Generate random sample
 #    update.message.reply_text(sample_model.sample_model())

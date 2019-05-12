@@ -10,9 +10,9 @@ def interact_model(
     seed=None,
     nsamples=1,
     batch_size=1,
-    length=5,
+    length=50,
     temperature=0.85,
-    top_k=20,
+    top_k=35,
     raw_text=''
 ):
     if batch_size is None:
