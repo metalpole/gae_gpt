@@ -18,8 +18,10 @@ def help(update, context):
 
 def echo(update, context):
     """Echo the user message."""
+    # Generate conditional sample
     reply = interact_model.interact_model(raw_text=(update.message.text))
     update.message.reply_text(reply)
+    # Generate random sample
 #    update.message.reply_text(sample_model.sample_model())
 #    update.message.reply_text(update.message.text)
 

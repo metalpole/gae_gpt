@@ -44,15 +44,14 @@ def interact_model(
         ckpt = tf.train.latest_checkpoint(os.path.join('models', model_name))
         saver.restore(sess, ckpt)
 
-        text='before text generation'
-        # while True:
-        #     context_tokens = enc.encode(raw_text)
-        #     generated = 0
-        #     for _ in range(nsamples // batch_size):
-        #         out = sess.run(output, feed_dict={
-        #             context: [context_tokens for _ in range(batch_size)]
-        #         })[:, len(context_tokens):]
-        #         for i in range(batch_size):
-        #             generated += 1
-        #             text += enc.decode(out[i])
+        text=''
+        context_tokens = enc.encode(raw_text)
+        generated = 0
+        for _ in range(nsamples // batch_size):
+            out = sess.run(output, feed_dict={
+                context: [context_tokens for _ in range(batch_size)]
+            })[:, len(context_tokens):]
+            for i in range(batch_size):
+                generated += 1
+                text += enc.decode(out[i])
     return text
