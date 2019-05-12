@@ -6,13 +6,13 @@ import tensorflow as tf
 import model, sample, encoder
 
 def interact_model(
-    model_name='117M',
+    model_name='345M',
     seed=None,
     nsamples=1,
     batch_size=1,
-    length=70,
+    length=55,
     temperature=0.85,
-    top_k=35,
+    top_k=40,
     raw_text=''
 ):
     if batch_size is None:
