@@ -39,20 +39,20 @@ def interact_model(
             batch_size=batch_size,
             temperature=temperature, top_k=top_k
         )
-
+        text='TF running'
         saver = tf.train.Saver()
         ckpt = tf.train.latest_checkpoint(os.path.join('models', model_name))
         saver.restore(sess, ckpt)
 
-        while True:
-            context_tokens = enc.encode(raw_text)
-            generated = 0
-            text = ''
-            for _ in range(nsamples // batch_size):
-                out = sess.run(output, feed_dict={
-                    context: [context_tokens for _ in range(batch_size)]
-                })[:, len(context_tokens):]
-                for i in range(batch_size):
-                    generated += 1
-                    text += enc.decode(out[i])
+        # while True:
+        #     context_tokens = enc.encode(raw_text)
+        #     generated = 0
+        #     text = ''
+        #     for _ in range(nsamples // batch_size):
+        #         out = sess.run(output, feed_dict={
+        #             context: [context_tokens for _ in range(batch_size)]
+        #         })[:, len(context_tokens):]
+        #         for i in range(batch_size):
+        #             generated += 1
+        #             text += enc.decode(out[i])
     return text
