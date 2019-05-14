@@ -23,12 +23,14 @@
    - ~~Drop URLs, no RTs~~ (13/05/2019)
    - ~~Situation where too many twitter user handles are being generated in a single response. Remove tweets with more than 3 handles (1247 tweets)~~ (14/05/2019)
    - ~~Remove '[VIDEO]', 'Video'~~ (14/05/2019)
-2) Remove undesirable elements while the model is still generating
+2) Remove undesirable elements or add additional tokens while the model is still generating
+   - Modify generation script to check that final character is a punction or final word is a twitter handle (no abrupt end to text) (14/05/2019)
 3) Post-processing on generated text before sending response back to user
-   - Preferable for response to have a proper ending/no sudden cutoff
+   - Make text responses more characteristic of the chief
 
 *Currently 37525 tweets in dataset*
 
 *Other stuff to consider*
 1) Length of response (random or fixed)
 2) Temperature, top_k
+3) Greater pool of hard-coded responses

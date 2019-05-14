@@ -46,12 +46,16 @@ def interact_model(
 
         text=''
         context_tokens = enc.encode(raw_text)
-        generated = 0
+        #generated = 0
         for _ in range(nsamples // batch_size):
             out = sess.run(output, feed_dict={
                 context: [context_tokens for _ in range(batch_size)]
             })[:, len(context_tokens):]
             for i in range(batch_size):
-                generated += 1
+                #generated += 1
                 text += enc.decode(out[i])
+
+        # Ensure that generated text ends with punctuation or twitter handle
+        #while (text[-1] not in '.?!') and ('@' not in text.split()[-1]):
+
     return text
