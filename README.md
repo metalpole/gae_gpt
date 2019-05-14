@@ -1,4 +1,5 @@
 # Check it out at _@stablegeniusbot_ on Telegram
+*Still in process of improving the quality of the responses*
 
 **Deployment & Integration Progress:**
 4th May 2019
