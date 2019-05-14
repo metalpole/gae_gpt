@@ -1,6 +1,6 @@
 @stablegeniusbot
 
-**Progress:**
+**Deployment & Integration Progress:**
 4th May 2019
 - Deployed telegram bot to Heroku. Realized that there is not enough space to load GPT-2.
 - Thought of putting the model on Google App Engine using Flask, and then let the telegram bot on Heroku communicate with it. Spent days struggling to deploy on GAE before realizing that there is not enough memory as well.
@@ -12,8 +12,21 @@
 - Integrated script for conditional sample generation after debugging. User is now able to send text via telegram and receive a response generated based on the text.
 
 13th May 2019
-- Downloaded and combined Twitter data from 2009-2019. Did basic parsing/processing to get the texts of relevant tweets. Decided to drop URLs from the dataset. Also tried some fine-tuning.
+- Downloaded and combined Twitter data from 2009-2019. Did basic parsing/processing to get the texts of relevant tweets. Tried some fine-tuning.
 
-**Tasks ahead**
-- Fine-tune GPT-2 model (345M parameters if possible) on tweet archive consisting of a decade of tweets
-- NLP on resulting generated texts
+14th May 2019
+- Figured out how to do fine-tuning on Google Colab since there is a GPU there, then upload model checkpoints to Cloud Storage which can then be downloaded by Compute Engine VM instance.
+
+**NLP Issues**
+*3 avenues of tackling quality of generated text*
+1) Clean up tweets dataset; remove undesirable elements
+   - ~~Drop URLs, no RTs~~ (13/05/2019)
+   - Situation where too many twitter user handles are being generated in a single response
+   - Remove '[VIDEO]', 'Video'
+2) Remove undesirable elements while the model is still generating
+3) Post-processing on generated text before sending response back to user
+   - Preferable for response to have a proper ending/no sudden cutoff
+
+*Other stuff to consider*
+1) Length of response (random or fixed)
+2) Temperature, top_k
