@@ -21,11 +21,13 @@
 *3 avenues of tackling quality of generated text*
 1) Clean up tweets dataset; remove undesirable elements
    - ~~Drop URLs, no RTs~~ (13/05/2019)
-   - Situation where too many twitter user handles are being generated in a single response
-   - Remove '[VIDEO]', 'Video'
+   - ~~Situation where too many twitter user handles are being generated in a single response. Remove tweets with more than 3 handles (1247 tweets)~~ (14/05/2019)
+   - ~~Remove '[VIDEO]', 'Video'~~ (14/05/2019)
 2) Remove undesirable elements while the model is still generating
 3) Post-processing on generated text before sending response back to user
    - Preferable for response to have a proper ending/no sudden cutoff
+
+*Currently 37525 tweets in dataset*
 
 *Other stuff to consider*
 1) Length of response (random or fixed)
