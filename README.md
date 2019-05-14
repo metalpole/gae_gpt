@@ -15,7 +15,7 @@
 - Downloaded and combined Twitter data from 2009-2019. Did basic parsing/processing to get the texts of relevant tweets. Tried some fine-tuning.
 
 14th May 2019
-- Figured out how to do fine-tuning on Google Colab since there is a GPU there, then upload model checkpoints to Cloud Storage which can then be downloaded by Compute Engine VM instance.
+- Figured out how to do fine-tuning on Google Colab since there is a GPU there, then upload model checkpoints to Cloud Storage which can then be downloaded by Compute Engine VM instance. Learnt to bypass using Google Drive since it does not integrate well with GCP.
 
 **NLP Issues**
 *3 avenues of tackling quality of generated text*
