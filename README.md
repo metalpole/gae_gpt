@@ -1,4 +1,4 @@
-@stablegeniusbot
+# Check it out at _@stablegeniusbot_ on Telegram
 
 **Deployment & Integration Progress:**
 4th May 2019
@@ -17,7 +17,7 @@
 14th May 2019
 - Figured out how to do fine-tuning on Google Colab since there is a GPU there, then upload model checkpoints to Cloud Storage which can then be downloaded by Compute Engine VM instance. Learnt to bypass using Google Drive since it does not integrate well with GCP.
 
-**NLP Issues**
+**NLP Issues/Stuff to make it better**
 *3 avenues of tackling quality of generated text*
 1) Clean up tweets dataset; remove undesirable elements
    - ~~Drop URLs, no RTs~~ (13/05/2019)
@@ -27,10 +27,16 @@
    - Modify generation script to check that final character is a punction or final word is a twitter handle (no abrupt end to text) (14/05/2019)
 3) Post-processing on generated text before sending response back to user
    - Make text responses more characteristic of the chief
+   - Spelling errors
+   - Full caps or capitalize first letter (Maybe not necessary, the model seems capable of reusing such words. Can try to randomly create my own)
+   - Avoid repeated twitter handles
 
 *Currently 37525 tweets in dataset*
 
 *Other stuff to consider*
 1) Length of response (random or fixed)
-2) Temperature, top_k
+2) Temperature, top_k (find optimal, or allow user to change?)
 3) Greater pool of hard-coded responses
+4) Faster VM
+
+**What's next? _Trump_ with _Shakespeare_?!**
