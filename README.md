@@ -32,6 +32,7 @@
    - Avoid repeated twitter handles
 
 *Currently 37525 tweets in dataset*
+*Latest model: 6.5 hrs, 7250 epochs, avg loss 1.35*
 
 *Other stuff to consider*
 1) Length of response (random or fixed)
