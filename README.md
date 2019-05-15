@@ -25,12 +25,14 @@
    - ~~Situation where too many twitter user handles are being generated in a single response. Remove tweets with more than 3 handles (1247 tweets)~~ (14/05/2019)
    - ~~Remove '[VIDEO]', 'Video'~~ (14/05/2019)
 2) Remove undesirable elements or add additional tokens while the model is still generating
-   - Modify generation script to check that final character is a punction or final word is a twitter handle (no abrupt end to text) (14/05/2019)
+   - Modify generation script to check that final character is a punction or final word is a twitter handle (no abrupt end to text) 
 3) Post-processing on generated text before sending response back to user
    - Make text responses more characteristic of the chief
    - Spelling errors
    - Full caps or capitalize first letter (Maybe not necessary, the model seems capable of reusing such words. Can try to randomly create my own)
    - Avoid repeated twitter handles
+   - Deal with <|endoftext|>
+   - Drop incomplete sentence if too few words, or use it to continue generating a complete sentence and append to response
 
 *Currently 37525 tweets in dataset*
 *Latest model: 6.5 hrs, 7250 epochs, avg loss 1.35*
