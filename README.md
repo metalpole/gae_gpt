@@ -31,7 +31,8 @@
    - Spelling errors
    - Full caps or capitalize first letter (Maybe not necessary, the model seems capable of reusing such words. Can try to randomly create my own)
    - Avoid repeated twitter handles
-   - Deal with <|endoftext|>
+   - ~~Deal with <|endoftext|>~~ (15/05/2019)
+   - Puncutation spacing errors
    - Drop incomplete sentence if too few words, or use it to continue generating a complete sentence and append to response
 
 *Currently 37525 tweets in dataset*

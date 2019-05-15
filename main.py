@@ -19,9 +19,12 @@ def help(update, context):
 def echo(update, context):
     """Echo the user message."""
     # Generate conditional sample
-    update.message.reply_text('Please wait for my very good brain')
+    update.message.reply_text('Please wait while I generate BS with my very good brain')
     reply = interact_model.interact_model(raw_text=(update.message.text))
     reply = ''.join(reply.split("<|endoftext|>"))
+    # Remove remaining characters from partial <|endoftext|>
+    reply = reply.split("<")[0].rstrip()
+    # Reply user with response
     update.message.reply_text(update.message.text + reply)
     # Generate random sample
 #    update.message.reply_text(sample_model.sample_model())
