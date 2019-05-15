@@ -1,7 +1,8 @@
 # Check it out at _@stablegeniusbot_ on Telegram
-*Still in process of improving the quality of the responses*
+*(Still in process of improving the quality of the responses)*
 
 **Deployment & Integration Progress:**
+
 4th May 2019
 - Deployed telegram bot to Heroku. Realized that there is not enough space to load GPT-2.
 - Thought of putting the model on Google App Engine using Flask, and then let the telegram bot on Heroku communicate with it. Spent days struggling to deploy on GAE before realizing that there is not enough memory as well.
@@ -33,15 +34,18 @@
    - Avoid repeated twitter handles
    - ~~Deal with <|endoftext|>~~ (15/05/2019)
    - Puncutation spacing errors
-   - Drop incomplete sentence if too few words, or use it to continue generating a complete sentence and append to response
+   - Drop incomplete sentence if too few words, or use it to continue generating a complete sentence and append to response. If 2 responses required, then maybe append "..." at end of first part
 
-*Currently 37525 tweets in dataset*
-*Latest model: 6.5 hrs, 7250 epochs, avg loss 1.35*
+**Currently 37525 tweets in dataset**
 
-*Other stuff to consider*
-1) Length of response (random or fixed)
-2) Temperature, top_k (find optimal, or allow user to change?)
-3) Greater pool of hard-coded responses
-4) Faster VM
+**Latest model: 6.5 hrs, 7250 epochs, avg loss 1.35**
+
+**Other stuff to consider**
+*1) Length of response (random or fixed)*
+*2) Temperature, top_k (find optimal, or allow user to change?)*
+*3) Greater pool of hard-coded responses*
+*4) Faster VM*
 
 **What's next? _Trump_ with _Shakespeare_?!**
+
+*Bot built using the sick [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) library, deployed on Google Compute Engine. GPT-2 model released by [OpenAI](https://github.com/openai/gpt-2), scripts for retraining by [nshepperd](https://github.com/nshepperd/gpt-2), fine-tuned on Google Colab. Tweets archived by [bpb27](https://github.com/bpb27/trump_tweet_data_archive), original tweets created by [the stable genius](https://twitter.com/realDonaldTrump?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor).*
