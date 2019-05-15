@@ -45,6 +45,7 @@
 *2) Temperature, top_k (find optimal, or allow user to change?)*
 *3) Greater pool of hard-coded responses*
 *4) Faster VM*
+*5) Reduce training. 7250 epochs is definitely too much*
 
 **What's next? _Trump_ with _Shakespeare_?!**
 
