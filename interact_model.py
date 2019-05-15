@@ -11,7 +11,7 @@ def interact_model(
     nsamples=1,
     batch_size=1,
     length=110,
-    temperature=1,
+    temperature=0.1,
     top_k=45,
     raw_text=''
 ):
