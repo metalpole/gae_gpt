@@ -19,15 +19,12 @@
 14th May 2019
 - Figured out how to do fine-tuning on Google Colab since there is a GPU there, then upload model checkpoints to Cloud Storage which can then be downloaded by Compute Engine VM instance. Learnt to bypass using Google Drive since it does not integrate well with GCP.
 
-**NLP Issues/Stuff to make it better**
-*3 avenues of tackling quality of generated text*
+**Stuff to make it better**
 1) Clean up tweets dataset; remove undesirable elements
    - ~~Drop URLs, no RTs~~ (13/05/2019)
    - ~~Situation where too many twitter user handles are being generated in a single response. Remove tweets with more than 3 handles (1247 tweets)~~ (14/05/2019)
    - ~~Remove '[VIDEO]', 'Video'~~ (14/05/2019)
-2) Remove undesirable elements or add additional tokens while the model is still generating
-   - Modify generation script to check that final character is a punction or final word is a twitter handle (no abrupt end to text) 
-3) Post-processing on generated text before sending response back to user
+2) Post-processing on generated text before sending response back to user
    - Make text responses more characteristic of the chief
    - Spelling errors
    - Full caps or capitalize first letter (Maybe not necessary, the model seems capable of reusing such words. Can try to randomly create my own)

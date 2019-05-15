@@ -24,6 +24,9 @@ def echo(update, context):
     reply = ''.join(reply.split("<|endoftext|>"))
     # Remove remaining characters from partial <|endoftext|>
     reply = reply.split("<")[0].rstrip()
+    # Fix ending (last char not punctuation, and last word not handle)
+    #if (reply[-1] not in '.!?\'\"') and ('@' not in reply.split()[-1]):
+        
     # Reply user with response
     update.message.reply_text(update.message.text + reply)
     # Generate random sample
