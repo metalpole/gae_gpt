@@ -24,6 +24,7 @@
    - ~~Drop URLs, no RTs~~ (13/05/2019)
    - ~~Situation where too many twitter user handles are being generated in a single response. Remove tweets with more than 3 handles (1247 tweets)~~ (14/05/2019)
    - ~~Remove '[VIDEO]', 'Video'~~ (14/05/2019)
+   - Remove tweets from [iPhone](http://varianceexplained.org/r/trump-tweets/). Apparently he only writes his more hyperbolic ones from Android. They are also more likely to contain just his words, with no links or hashtags. Removing tweets from his staff will make the language model more representative of him. 
 2) Post-processing on generated text before sending response back to user
    - Make text responses more characteristic of the chief
    - Spelling errors
