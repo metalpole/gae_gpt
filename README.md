@@ -24,7 +24,9 @@
    - ~~Drop URLs, no RTs~~ (13/05/2019)
    - ~~Situation where too many twitter user handles are being generated in a single response. Remove tweets with more than 3 handles (1247 tweets)~~ (14/05/2019)
    - ~~Remove '[VIDEO]', 'Video'~~ (14/05/2019)
-   - Remove tweets from [iPhone](http://varianceexplained.org/r/trump-tweets/). Apparently he only writes his more hyperbolic ones from Android. They are also more likely to contain just his words, with no links or hashtags. Removing tweets from his staff will make the language model more representative of him. 
+   - ~~Remove tweets for event announcements with words like 'join' and 'tomorrow'; they are clearly not written by him~~ (18/05/2019)
+   - ~~Remove tweets from iPhone with 'Thank you'~~ (18/05/2019)
+   - Remove tweets from [iPhone](http://varianceexplained.org/r/trump-tweets/). Apparently he only writes his more hyperbolic ones from Android. They are also more likely to contain just his words, with no links or hashtags. Removing tweets from his staff will make the language model more representative of him. The iPhone is also clearly responsible for event announcements. *Update: I think this might not be applicable in the more recent years, since I can easily spot nonsense coming from an iPhone source. Maybe only remove iPhone tweets from before he became president since the article only analyzes tweets till 2016. Apparently, the iPhone tweets only started in 2014, and seem to be purely used by a staff. Since 2016, I think it's not as easy to separate the tweets based purely on the source alone.*
 2) Post-processing on generated text before sending response back to user
    - Make text responses more characteristic of the chief
    - Spelling errors
@@ -34,7 +36,7 @@
    - Puncutation spacing errors
    - Drop incomplete sentence if too few words, or use it to continue generating a complete sentence and append to response. If 2 responses required, then maybe append "..." at end of first part
 
-**Currently 37525 tweets in dataset**
+**Currently 34799 tweets in dataset**
 
 **Latest model: ~~6.5 hrs, 7250 epochs, avg loss 1.35~~ 1000 epochs, avg loss 2.49**
 
