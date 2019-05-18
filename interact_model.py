@@ -12,7 +12,7 @@ def interact_model(
     batch_size=1,
     length=110,
     temperature=0.9,
-    top_k=45,
+    top_k=40,
     raw_text=''
 ):
     if batch_size is None:
