@@ -38,7 +38,7 @@
 
 **Currently 23302 tweets in dataset**
 
-**Latest model: ~~6.5 hrs, 7250 epochs, avg loss 1.35~~ 1000 epochs, avg loss 2.49**
+**Latest model: ~~6.5 hrs, 7250 epochs, avg loss 1.35~~ 1015 epochs, avg loss 2.49**
 
 **Other stuff to consider**
 *1) Length of response (random or fixed)*

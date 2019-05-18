@@ -14,7 +14,7 @@ def start(update, context):
 
 def help(update, context):
     """Send a message when the command /help is issued."""
-    update.message.reply_text('Send a word or phrase.')
+    update.message.reply_text('Send a word or phrase to get rolling')
 
 def echo(update, context):
     """Echo the user message."""
@@ -25,8 +25,8 @@ def echo(update, context):
     # Remove remaining characters from partial <|endoftext|>
     reply = reply.split("<")[0].rstrip()
     # Fix ending (last char not punctuation, and last word not handle)
-    #if (reply[-1] not in '.!?\'\"') and ('@' not in reply.split()[-1]):
-        
+    while (reply[-1] not in '.!?$\'\"') and ('@' not in reply.split()[-1]) and ('#' not in reply.split()[-1]):
+        reply = reply[:-1]
     # Reply user with response
     update.message.reply_text(update.message.text + reply)
     # Generate random sample
