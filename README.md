@@ -19,6 +19,9 @@
 14th May 2019
 - Figured out how to do fine-tuning on Google Colab since there is a GPU there, then upload model checkpoints to Cloud Storage which can then be downloaded by Compute Engine VM instance. Learnt to bypass using Google Drive since it does not integrate well with GCP.
 
+19th May 2019
+- BOOSTED DATASET WITH TRANSCRIPTS OF HIS SPEECHES FROM 2016 CAMPAIGN
+
 **Stuff to make it better**
 1) Clean up tweets dataset; remove undesirable elements
    - ~~Drop URLs, no RTs~~ (13/05/2019)
@@ -36,8 +39,9 @@
    - ~~Deal with <|endoftext|>~~ (15/05/2019)
    - ~~Puncutation spacing errors~~ (19/05/2019)
    - ~~End response properly~~ (19/05/2019)
+3) Added new data from 2016 campaign speeches MAJOR BOOST (19/05/2019)
 
-**Currently 20952 tweets in dataset**
+**Currently 20952 tweets in dataset. Didn't count for transcripts, but it's a major addition.**
 
 **Latest model: 1015 epochs**
 
@@ -50,4 +54,4 @@
 
 **What's next? _Trump_ with _Shakespeare_?!**
 
-*Bot built using the sick [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) library, deployed on Google Compute Engine. GPT-2 model released by [OpenAI](https://github.com/openai/gpt-2), scripts for retraining by [nshepperd](https://github.com/nshepperd/gpt-2), fine-tuned on Google Colab. Tweets archived by [bpb27](https://github.com/bpb27/trump_tweet_data_archive), original tweets created by [the stable genius](https://twitter.com/realDonaldTrump?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor).*
+*Bot built using the sick [python-telegram-bot](https://github.com/python-telegram-bot/python-telegram-bot) library, deployed on Google Compute Engine. GPT-2 model released by [OpenAI](https://github.com/openai/gpt-2), scripts for retraining by [nshepperd](https://github.com/nshepperd/gpt-2), fine-tuned on Google Colab. Tweets archived by [bpb27](https://github.com/bpb27/trump_tweet_data_archive), original tweets created by [the stable genius](https://twitter.com/realDonaldTrump?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor). Speech transcripts from [ryanmcdermott repo](https://github.com/ryanmcdermott/trump-speeches).*
