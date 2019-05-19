@@ -1,3 +1,5 @@
+import random
+import re
 import logging
 import sample_model
 import interact_model
@@ -7,6 +9,9 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Waiting message
+wait_msg = {1:'Please wait for my very good brain...', 2:'Working my good brain genes...', 3:'Generating my BS...', \
+    4:'My father gave me a good brain with high IQ.'}
 
 def start(update, context):
     """Send a message when the command /start is issued."""
@@ -19,16 +24,40 @@ def help(update, context):
 def echo(update, context):
     """Echo the user message."""
     # Generate conditional sample
-    update.message.reply_text('Please wait while I generate BS with my very good brain')
+    update.message.reply_text(wait_msg[random.randint(1,len(wait_msg))])
     reply = interact_model.interact_model(raw_text=(update.message.text))
     reply = ''.join(reply.split("<|endoftext|>"))
+
     # Remove remaining characters from partial <|endoftext|>
     reply = reply.split("<")[0].rstrip()
+
     # Fix ending (last char not punctuation, and last word not handle)
-    while (reply[-1] not in '.!?$\'\"') and ('@' not in reply.split()[-1]) and ('#' not in reply.split()[-1]):
+    while (reply[-1] not in '.!?$\"') and ('@' not in reply.split()[-1]) and ('#' not in reply.split()[-1]):
         reply = reply[:-1]
+
+    # Fix punctuation (.!?)
+    # Full stop
+    stops = re.split(r'\.', reply)
+    new_stops = [stops[0]]
+    for sentence in stops[1:]:
+        new_stops.append(' ' + sentence.lstrip())
+    reply = '.'.join(new_stops)
+    # Exclaimation mark
+    exclaim = re.split(r'!', reply)
+    new_exclaim = [exclaim[0]]
+    for sentence in exclaim[1:]:
+        new_exclaim.append(' ' + sentence.lstrip())
+    reply = '.'.join(new_exclaim)
+    # Question mark
+    quest = re.split(r'\?', reply)
+    new_quest = [quest[0]]
+    for sentence in quest[1:]:
+        new_quest.append(' ' + sentence.lstrip())
+    reply = '.'.join(new_quest)
+
     # Reply user with response
     update.message.reply_text(update.message.text + reply)
+    
     # Generate random sample
 #    update.message.reply_text(sample_model.sample_model())
 #    update.message.reply_text(update.message.text)

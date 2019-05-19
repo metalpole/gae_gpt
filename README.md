@@ -33,8 +33,8 @@
    - Full caps or capitalize first letter (Maybe not necessary, the model seems capable of reusing such words. Can try to randomly create my own)
    - ~~Avoid repeated twitter handles~~ (18/05/2019)
    - ~~Deal with <|endoftext|>~~ (15/05/2019)
-   - Puncutation spacing errors
-   - Drop incomplete sentence if too few words, or use it to continue generating a complete sentence and append to response. If 2 responses required, then maybe append "..." at end of first part
+   - ~~Puncutation spacing errors~~ (19/05/2019)
+   - ~~End response properly~~ (19/05/2019)
 
 **Currently 23302 tweets in dataset**
 
