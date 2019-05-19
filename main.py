@@ -61,9 +61,8 @@ def echo(update, context):
         new_quest.append(' ' + sentence.lstrip())
     reply = '.'.join(new_quest)
 
-    # Add spelling error (50% chance). Random word, random letter, random insertion
-    #if random.randint(1,2) == 1:    Try spelling error with every response
-    if True:
+    # Add spelling error (70% chance). Random word, random letter, random insertion
+    if random.randint(1,10) >= 4:
         try:
             word_list = reply.split()
             n = random.randint(0, len(word_list)-1)
