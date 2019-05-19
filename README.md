@@ -27,25 +27,26 @@
    - ~~Remove tweets for event announcements with words like 'join', 'tomorrow', 'Tune', '#MakeAmericaGreatAgain, 'Just arrive'; they are clearly not written by him~~ (18/05/2019)
    - ~~Remove tweets from iPhone with 'Thank you'~~ (18/05/2019)
    - ~~Remove manual retweets. They start with the user handle of the person he's retweeting, followed by @realdonaldtrump~~ (18/05/2019)
-   - Remove tweets from [iPhone](http://varianceexplained.org/r/trump-tweets/). Apparently he only writes his more hyperbolic ones from Android. They are also more likely to contain just his words, with no links or hashtags. Removing tweets from his staff will make the language model more representative of him. The iPhone is also clearly responsible for event announcements. *Update: I think this might not be applicable in the more recent years, since I can easily spot nonsense coming from an iPhone source. Maybe only remove iPhone tweets from before he became president since the article only analyzes tweets till 2016. Apparently, the iPhone tweets only started in 2014, and seem to be purely used by a staff. Since 2016, I think it's not as easy to separate the tweets based purely on the source alone.*
+   - Remove tweets from [iPhone](http://varianceexplained.org/r/trump-tweets/). Apparently he only writes his more hyperbolic ones from Android. They are also more likely to contain just his words, with no links or hashtags. The iPhone is also clearly responsible for event announcements. 
+   *Update: I think this might not be applicable in the more recent years, since I can easily spot nonsense coming from an iPhone source. Maybe only remove iPhone tweets from before he became president since the article only analyzes tweets till 2016. Apparently, the iPhone tweets only started in 2014, and seem to be purely used by a staff. Since 2016, I think it's not as easy to separate the tweets based purely on the source alone.*
 2) Post-processing on generated text before sending response back to user
    - Spelling errors
-   - Full caps or capitalize first letter (Maybe not necessary, the model seems capable of reusing such words. Can try to randomly create my own)
+   - Random/full caps
    - ~~Avoid repeated twitter handles~~ (18/05/2019)
    - ~~Deal with <|endoftext|>~~ (15/05/2019)
    - ~~Puncutation spacing errors~~ (19/05/2019)
    - ~~End response properly~~ (19/05/2019)
 
-**Currently 23302 tweets in dataset**
+**Currently 20952 tweets in dataset**
 
-**Latest model: ~~6.5 hrs, 7250 epochs, avg loss 1.35~~ 1015 epochs, avg loss 2.49**
+**Latest model: 1015 epochs**
 
 **Other stuff to consider**
-*1) Length of response (random or fixed)*
-*2) Temperature, top_k (find optimal, or allow user to change?)*
-*3) Greater pool of hard-coded responses*
-*4) Faster VM*
-*5) Reduce training. 7250 epochs is definitely too much*
+1) Length of response
+2) Temperature, top_k
+3) Greater pool of hard-coded responses
+4) Faster VM
+5) Training epochs
 
 **What's next? _Trump_ with _Shakespeare_?!**
 
