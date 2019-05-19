@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 wait_msg = {1:'Please wait for my very good brain...', 2:'Working my good brain genes...', 3:'Generating my BS...', \
     4:'My father gave me a good brain with high IQ...', 5:'Coming up with the best words...'}
 
-alphabet = 'abcdefghijklmnopqrstuvwxyzAEIOU'
+alphabet = 'abcdefghijklmnopqrstuvwy'
 
 def start(update, context):
     """Send a message when the command /start is issued."""
