@@ -63,12 +63,16 @@ def echo(update, context):
 
     # Add spelling error (50% chance). Random word, random letter, random insertion
     #if random.randint(1,2) == 1:    Try spelling error with every response
-    word_list = reply.split()
-    n = random.randint(0, len(word_list)-1)
-    word = list(word_list[n])
-    word.insert(random.randint(1, len(word)-1), random.choice(alphabet))
-    word_list[n] = ''.join(word)
-    reply = ' '.join(word_list)
+    if True:
+        try:
+            word_list = reply.split()
+            n = random.randint(0, len(word_list)-1)
+            word = list(word_list[n])
+            word.insert(random.randint(0, len(word)-1), random.choice(alphabet))
+            word_list[n] = ''.join(word)
+            reply = ' '.join(word_list)
+        except:
+            pass
 
     # Reply user with response
     update.message.reply_text(update.message.text + reply)
