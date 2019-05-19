@@ -25,8 +25,12 @@ def help(update, context):
 
 def echo(update, context):
     """Echo the user message."""
-    # Generate conditional sample
+    # Waiting message
     update.message.reply_text(wait_msg[random.randint(1,len(wait_msg))])
+    with open('primers.txt', 'a') as f:
+        f.write(update.message.text+'\n')
+
+    # Generate conditional sample
     reply = interact_model.interact_model(raw_text=(update.message.text))
     reply = ''.join(reply.split("<|endoftext|>"))
 
