@@ -64,9 +64,9 @@ def echo(update, context):
     # Add spelling error (50% chance). Random word, random letter, random insertion
     #if random.randint(1,2) == 1:    Try spelling error with every response
     word_list = reply.split()
-    n = random.randint(0, len(word_list))
+    n = random.randint(0, len(word_list)-1)
     word = list(word_list[n])
-    word.insert(random.randint(1, len(word)), random.choice(alphabet))
+    word.insert(random.randint(1, len(word)-1), random.choice(alphabet))
     word_list[n] = ''.join(word)
     reply = ' '.join(word_list)
 
