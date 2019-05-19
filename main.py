@@ -62,13 +62,13 @@ def echo(update, context):
     reply = '.'.join(new_quest)
 
     # Add spelling error (50% chance). Random word, random letter, random insertion
-    if random.randint(1,2) == 1:
-        word_list = reply.split()
-        n = random.randint(0, len(word_list))
-        word = list(word_list[n])
-        word.insert(random.randint(1, len(word)), random.choice(alphabet))
-        word_list[n] = ''.join(word)
-        reply = ' '.join(word_list)
+    #if random.randint(1,2) == 1:    Try spelling error with every response
+    word_list = reply.split()
+    n = random.randint(0, len(word_list))
+    word = list(word_list[n])
+    word.insert(random.randint(1, len(word)), random.choice(alphabet))
+    word_list[n] = ''.join(word)
+    reply = ' '.join(word_list)
 
     # Reply user with response
     update.message.reply_text(update.message.text + reply)
