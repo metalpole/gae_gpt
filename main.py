@@ -13,6 +13,8 @@ logger = logging.getLogger(__name__)
 wait_msg = {1:'Please wait for my very good brain...', 2:'Working my good brain genes...', 3:'Generating my BS...', \
     4:'My father gave me a good brain with high IQ...', 5:'Coming up with the best words...'}
 
+alphabet = 'abcdefghijklmnopqrstuvwxyzAEIOU'
+
 def start(update, context):
     """Send a message when the command /start is issued."""
     update.message.reply_text('Hi!')
@@ -54,6 +56,13 @@ def echo(update, context):
     for sentence in quest[1:]:
         new_quest.append(' ' + sentence.lstrip())
     reply = '.'.join(new_quest)
+
+    # Add spelling error (50% chance). Random word, random letter, random insertion
+    if random.randint(1,2) == 1:
+        word_list = reply.split()
+        n = random.randint(0, len(word_list))
+        word_list[n] = word_list[n].insert(random.randint(1, len(word_list[n])), random.choice(alphabet))
+        reply = ''.join(word_list)
 
     # Reply user with response
     update.message.reply_text(update.message.text + reply)
