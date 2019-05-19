@@ -19,7 +19,7 @@ def start(update, context):
 
 def help(update, context):
     """Send a message when the command /help is issued."""
-    update.message.reply_text('Send a word or phrase to get rolling')
+    update.message.reply_text('Send a word or phrase as a primer to get rolling')
 
 def echo(update, context):
     """Echo the user message."""
