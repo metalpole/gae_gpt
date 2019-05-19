@@ -33,7 +33,7 @@
    - Remove tweets from [iPhone](http://varianceexplained.org/r/trump-tweets/). Apparently he only writes his more hyperbolic ones from Android. They are also more likely to contain just his words, with no links or hashtags. The iPhone is also clearly responsible for event announcements. 
    *Update: I think this might not be applicable in the more recent years, since I can easily spot nonsense coming from an iPhone source. Maybe only remove iPhone tweets from before he became president since the article only analyzes tweets till 2016. Apparently, the iPhone tweets only started in 2014, and seem to be purely used by a staff. Since 2016, I think it's not as easy to separate the tweets based purely on the source alone.*
 2) Post-processing on generated text before sending response back to user
-   - Spelling errors
+   - ~~Spelling errors~~ (19/05/2019)
    - Random/full caps
    - ~~Avoid repeated twitter handles~~ (18/05/2019)
    - ~~Deal with <|endoftext|>~~ (15/05/2019)
