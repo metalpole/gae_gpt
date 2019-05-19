@@ -66,7 +66,8 @@ def echo(update, context):
         word_list = reply.split()
         n = random.randint(0, len(word_list))
         word = list(word_list[n])
-        word_list[n] = ''.join(word.insert(random.randint(1, len(word)), random.choice(alphabet)))
+        word.insert(random.randint(1, len(word)), random.choice(alphabet))
+        word_list[n] = ''.join(word)
         reply = ' '.join(word_list)
 
     # Reply user with response
